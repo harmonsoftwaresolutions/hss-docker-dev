@@ -1,5 +1,6 @@
 # hss-docker-dev
-HSS docker development with neovim
+HSS docker development with neovim. Master branch is CentOS. Ubuntu and other
+linux variants available on other branches.
 
 # Requirements
 docker
