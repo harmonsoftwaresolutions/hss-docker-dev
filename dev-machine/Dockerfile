@@ -21,18 +21,19 @@ RUN curl -O https://bootstrap.pypa.io/get-pip.py
 RUN /usr/bin/python2.7 get-pip.py
 RUN pip install neovim
 
-## ROOT NEOVIM
+# ROOT NEOVIM
 RUN git clone https://github.com/neovim/neovim && cd neovim && make --silent && make install
-## ROOT Home Environment User Setup
-# RUN useradd -ms /bin/bash hss
-# ENV PATH /home/hss:$PATH
-# ENV HOME /home/hss
-RUN yum install -y zsh
-RUN usermod -s /bin/zsh root
-# RUN chown -R hss:hss /home/hss
 
-## USER
-# USER hss
+# ROOT Home Environment User Setup
+RUN usermod -s /bin/zsh root
+RUN yum install -y zsh
+RUN useradd -ms /bin/zsh hss
+ENV PATH /home/hss:$PATH
+ENV HOME /home/hss
+RUN chown -R hss:hss /home/hss
+
+# USER
+USER hss
 WORKDIR /home
 COPY hss-cfg/ ./
 COPY symlink-prezto.sh ./
