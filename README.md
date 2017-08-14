@@ -6,7 +6,7 @@ linux variants available on other branches.
 docker
 
 # Setup
-Run `get-config.sh` in order to get the home config files
+Run `get-config.sh` in order to get the home config files for docker COPY
 
 # Run Docker Compose
 `docker-compose up --build`
